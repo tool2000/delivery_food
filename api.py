@@ -17,6 +17,7 @@ def create_post():
     menu = request.form['menu']
 
     user = db.session.query(User).filter_by(id=user_id).first()
+
     delivery_address = user.delivery_address
 
     MT = db.session.query(Menu).filter_by(id=menu).first()
@@ -34,4 +35,5 @@ def create_post():
     
 @board.route("/order_list")
 def order_list():
-    return render_template('order_list.html')
+    data = db.session.query(DeliveryOrder).all()
+    return render_template('order_list.html', data=data)

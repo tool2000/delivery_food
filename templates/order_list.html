@@ -15,7 +15,7 @@
             color: aliceblue;
         }
         .mybox {
-            margin-left: 150px;
+            margin: 5px auto; 
             display: flex;
             flex-wrap: wrap;
             border-top: 1px solid orange;
@@ -32,6 +32,20 @@
 
 <body>
     <h2 class="title">배달은 식샤</h2>
+    {% for d in data %}
+        <div class="mybox">
+            <div class="item"> {{ d.id }} </div>
+            <div class="item"> {{ d.user_id }} </div>
+            <div class="item"> {{ d.delivery_address }} </div>
+            <div class="item"> {{ d.menu_id }} </div>
+            <div class="item"> {{ d.store_id }} </div>
+            <div class="item"> {{ d.store_contact_number }} </div>
+            <div class="item"> {{ d.total_price }} </div>
+            <div class="item"> {{ d.delivery_fee }} </div>
+            <div class="item"> {{ d.order_method }} </div>
+            <div class="item"> {{ d.order_dt }} </div>
+        </div>
+    {% endfor %}
 
 </body>
 </html>
