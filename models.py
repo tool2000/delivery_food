@@ -2,6 +2,10 @@ import enum
 from db_connect import db
 from datetime import datetime
 
+class OrderMethod(enum.Enum):
+    card = "card"
+    cash = "cash"
+
 class User(db.Model):
     __tablename__ = 'user'
     id = db.Column(db.String(10), primary_key=True, nullable=False)
@@ -56,7 +60,5 @@ class DeliveryOrder(db.Model):
         self.delivery_fee = delivery_fee
         self.order_method = order_method
 
-class OrderMethod(enum.Enum):
-    card = "card"
-    cash = "cash"
+
 
